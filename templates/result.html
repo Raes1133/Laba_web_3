@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Результат обработки изображения</title>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .plot-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .plot-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Исходное изображение с рамкой</h1>
+    <div class="image-container">
+        <img src="{{ original_image }}" alt="Исходное изображение">
+    </div>
+
+    <h1>Распределение цветов исходного изображения</h1>
+    <div class="plot-container">
+        <img src="data:image/png;base64,{{ original_color_distribution }}" alt="Распределение цветов исходного изображения">
+    </div>
+</body>
+</html>

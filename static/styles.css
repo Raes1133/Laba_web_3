@@ -1,0 +1,21 @@
+<style>
+ form {
+ background-color: #f4f4f4;
+ padding: 20px;
+ border-radius: 10px;
+ }
+ input {
+ padding: 5px;
+ margin: 5px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ }
+ button {
+ background-color: #4CAF50;
+ color: white;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ }
+</style>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка изображения</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var correctCaptcha = function(response) {
+            document.getElementsByName('resp')[0].value = response;
+            document.forms[0].submit();
+        };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 1rem;
+        }
+        input[type="file"], input[type="number"] {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 400px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Добавить рамку к изображению</h1>
+    <form action="{{ url_for('process_image') }}" method="post" enctype="multipart/form-data">
+
+        <label for="image">Выберите изображение:</label>
+        <input type="file" id="image" name="image" required>
+        <label for="border_size">Укажите размер рамки (в пикселях):</label>
+        <input type="number" id="border_size" name="border_size" required min="0" max="100" value="10">
+
+        <div class="form-group">
+            <div class="g-recaptcha" id="rcaptcha" data-sitekey="6LffhuMpAAAAAFRaCLQ41j98xRAZT9Y4G5gTg4GY" data-callback="correctCaptcha"> </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Обработать</button>
+    </form>
+</div>
+</body>
+</html>
