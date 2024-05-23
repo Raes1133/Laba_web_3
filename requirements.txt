@@ -4,3 +4,4 @@ pip install uvicorn
 pip install numpy
 pip install pillow
 pip install fastapi
+pip install Jinja2
