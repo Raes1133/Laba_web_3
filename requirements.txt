@@ -1,6 +1,6 @@
-pip install matplotlib
-pip install uvicorn
-pip install numpy
-pip install pillow
-pip install fastapi
-pip install Jinja2
+matplotlib
+uvicorn
+numpy
+pillow
+fastapi
+Jinja2
