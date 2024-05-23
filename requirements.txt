@@ -1,4 +1,3 @@
-pip install PIL
 pip install matplotlib
 pip install uvicorn
 pip install numpy
