@@ -1,0 +1,6 @@
+pip install PIL
+pip install matplotlib
+pip install uvicorn
+pip install numpy
+pip install pillow
+pip install fastapi
