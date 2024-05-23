@@ -66,6 +66,5 @@ async def process_image(
         "original_color_distribution": original_color_distribution,
     })
 
-# запускаем локально веб сервер
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)
