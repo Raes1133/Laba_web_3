@@ -37,11 +37,22 @@ def add_border(image_array, border_size):
     return new_image_array
 
 def plot_color_distribution(image_array, title):
+    # Разделяем изображение на цветовые каналы
+    r = image_array[:, :, 0].flatten()
+    g = image_array[:, :, 1].flatten()
+    b = image_array[:, :, 2].flatten()
+
     fig, ax = plt.subplots(figsize=(8, 6))
-    ax.hist(image_array.flatten(), bins=256, range=(0, 256), color='b')
+    # Строим гистограммы для каждого канала
+    ax.hist(r, bins=256, range=(0, 256), color='r', alpha=0.5, label='Красный')
+    ax.hist(g, bins=256, range=(0, 256), color='g', alpha=0.5, label='Зеленый')
+    ax.hist(b, bins=256, range=(0, 256), color='b', alpha=0.5, label='Синий')
+
     ax.set_title(title)
     ax.set_xlabel('Значение пикселя')
     ax.set_ylabel('Количество пикселей')
+    ax.legend()
+
     buffer = BytesIO()
     plt.savefig(buffer, format='png')
     buffer.seek(0)
