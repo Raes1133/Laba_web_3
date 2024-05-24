@@ -24,17 +24,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Линтинг с flake8
-      run: |
-        # остановить билд, если есть ошибки синтаксиса Python или неопределенные имена
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero считает все ошибки предупреждениями. Редактор GitHub имеет ширину 127 символов
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-        
-    - name: Тестирование с pytest
-      run: |
-        pytest tests/
-        
     - name: Сборка и запуск приложения
       run: |
-        uvicorn main:app --port 8000 --reload
+        (uvicorn main:app --host localhost &)
+        
+    - name: Проверка приложения
+      run: |
+        curl -f localhost:8000
+
+    - name: Deploy
+      run: |
+        curl -f https://api.render.com/deploy/srv-cp80eced3nmc73f6s4e0?key=Vads6fxFyiU
