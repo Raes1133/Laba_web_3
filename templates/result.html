@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +34,12 @@
         <img src="{{ original_image }}" alt="Исходное изображение">
     </div>
 
-    <h1>Распределение цветов исходного изображения</h1>
+    <h1>График распределение цветов исходного изображения</h1>
     <div class="plot-container">
         <img src="data:image/png;base64,{{ original_color_distribution }}" alt="Распределение цветов исходного изображения">
+    </div>
+    <div class="text-center mt-4">
+            <a href="{{ url_for('home') }}" class="btn btn-primary">Вернуться на главную</a>
     </div>
 </body>
 </html>
