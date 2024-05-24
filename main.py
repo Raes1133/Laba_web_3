@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, Form, UploadFile, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 import numpy as np
 import base64
@@ -10,6 +11,20 @@ import uvicorn
 import os
 
 app = FastAPI()
+origins = [
+    "https://laba-web-3.onrender.com",
+    "http://localhost",
+    "http://localhost:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
